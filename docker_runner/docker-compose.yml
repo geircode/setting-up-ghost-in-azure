@@ -1,24 +1,24 @@
 version: '3.5'
 
 services:
-  templateworkspace-runner:
-    image: geircode/templateworkspace-runner:latest
+  setting_up_ghost_in_azure-runner:
+    image: geircode/setting_up_ghost_in_azure-runner:latest
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: templateworkspace-runner-1
+    container_name: setting_up_ghost_in_azure-runner-1
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "../.:/app"        
     secrets:
       - source: dockerloginpassword      
     networks:
-      - templateworkspace-runner-network      
+      - setting_up_ghost_in_azure-runner-network      
 secrets:
   dockerloginpassword:
-    file: ../../DockerSecrets/templateworkspace_secrets/dockerloginpassword
+    file: ../../DockerSecrets/setting_up_ghost_in_azure_secrets/dockerloginpassword
 
 networks:
-  templateworkspace-runner-network:
-    name: templateworkspace-runner-network    
+  setting_up_ghost_in_azure-runner-network:
+    name: setting_up_ghost_in_azure-runner-network    
     

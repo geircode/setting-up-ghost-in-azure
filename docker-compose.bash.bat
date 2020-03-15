@@ -1,1 +1,1 @@
-docker exec -it templateworkspace-1 /bin/bash
+docker exec -it setting_up_ghost_in_azure-1 /bin/bash

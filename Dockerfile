@@ -1,4 +1,4 @@
-FROM geircode/templateworkspace-filecontainer:latest as filecontainer
+FROM geircode/setting_up_ghost_in_azure-filecontainer:latest as filecontainer
 
 FROM python:3.6
 

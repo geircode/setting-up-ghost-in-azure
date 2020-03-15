@@ -1,6 +1,6 @@
 import unittest
 import datetime
-from templateworkspace.HelloService import HelloService
+from setting_up_ghost_in_azure.HelloService import HelloService
 
 class TestHelloService(unittest.TestCase):
 

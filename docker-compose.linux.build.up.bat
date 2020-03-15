@@ -7,4 +7,4 @@ call docker_image_builder\docker-compose.linux.build.bat
 
 cd %~dp0
 docker-compose -f docker-compose.yml up -d
-docker exec -it templateworkspace-1 /bin/bash
+docker exec -it setting_up_ghost_in_azure-1 /bin/bash

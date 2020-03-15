@@ -2,5 +2,5 @@ cd %~dp0
 cd ..\..
 mkdir DockerSecrets
 cd DockerSecrets
-mkdir templateworkspace_secrets
+mkdir setting_up_ghost_in_azure_secrets
 REM pause

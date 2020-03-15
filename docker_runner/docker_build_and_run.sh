@@ -1,6 +1,6 @@
 #!/bin/sh
 
 cd /app
-docker build -f Dockerfile -t geircode/templateworkspace .
+docker build -f Dockerfile -t geircode/setting_up_ghost_in_azure .
 docker-compose -f docker-compose.yml up -d --build --remove-orphans
-docker exec -it templateworkspace-1 /bin/bash
+docker exec -it setting_up_ghost_in_azure-1 /bin/bash

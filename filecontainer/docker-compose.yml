@@ -1,16 +1,16 @@
 version: '3.5'
 
 services:
-  templateworkspace-filecontainer:
-    image: geircode/templateworkspace-filecontainer:latest
+  setting_up_ghost_in_azure-filecontainer:
+    image: geircode/setting_up_ghost_in_azure-filecontainer:latest
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: templateworkspace-filecontainer-1
+    container_name: setting_up_ghost_in_azure-filecontainer-1
     networks:
-      - templateworkspace-filecontainer-network      
+      - setting_up_ghost_in_azure-filecontainer-network      
 
 networks:
-  templateworkspace-filecontainer-network:
-    name: templateworkspace-filecontainer-network    
+  setting_up_ghost_in_azure-filecontainer-network:
+    name: setting_up_ghost_in_azure-filecontainer-network    
     
