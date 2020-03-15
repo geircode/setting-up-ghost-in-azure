@@ -1,0 +1,18 @@
+version: '3.5'
+
+services:
+  docker_image_builder:
+    image: geircode/docker_image_builder:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: docker_image_builder-1
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "../.:/app"        
+    networks:
+      - docker_image_builder-network      
+networks:
+  docker_image_builder-network:
+    name: docker_image_builder-network    
+    

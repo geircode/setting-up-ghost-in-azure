@@ -1,0 +1,17 @@
+version: '3.5'
+
+services:
+  templateworkspace:
+    image: geircode/templateworkspace:latest
+    build:
+      context: .
+      dockerfile: Dockerfile    
+    container_name: templateworkspace-1
+    volumes:
+      - ".:/app"       
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - templateworkspace_network
+networks:
+  templateworkspace_network:
+          

@@ -1,0 +1,24 @@
+version: '3.5'
+
+services:
+  templateworkspace-runner:
+    image: geircode/templateworkspace-runner:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: templateworkspace-runner-1
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "../.:/app"        
+    secrets:
+      - source: dockerloginpassword      
+    networks:
+      - templateworkspace-runner-network      
+secrets:
+  dockerloginpassword:
+    file: ../../DockerSecrets/templateworkspace_secrets/dockerloginpassword
+
+networks:
+  templateworkspace-runner-network:
+    name: templateworkspace-runner-network    
+    

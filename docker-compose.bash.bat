@@ -1,0 +1,1 @@
+docker exec -it templateworkspace-1 /bin/bash

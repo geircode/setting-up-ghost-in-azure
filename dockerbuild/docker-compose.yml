@@ -1,0 +1,25 @@
+version: '3.5'
+
+services:
+  templateworkspace-builder:
+    image: geircode/templateworkspace-builder:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: templateworkspace-builder-1
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "../.:/app"
+      # - ".:/app-scripts"             
+    secrets:
+      - source: dockerloginpassword      
+    networks:
+      - templateworkspace-builder-network      
+secrets:
+  dockerloginpassword:
+    file: ../../DockerSecrets/templateworkspace_secrets/dockerloginpassword
+
+networks:
+  templateworkspace-builder-network:
+    name: templateworkspace-builder-network    
+    
