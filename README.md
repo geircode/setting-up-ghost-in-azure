@@ -8,4 +8,4 @@ COMPOSE_PROJECT_NAME=<name>_<id> i.e "templateworkspace"
 
 ## How to use this workspace template
 
-[README](.devcontainer\README.md )
+[README](.devcontainer/README.md )
