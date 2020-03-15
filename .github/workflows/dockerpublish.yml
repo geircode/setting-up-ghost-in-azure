@@ -15,7 +15,7 @@ on:
 
 env:
   # TODO: Change variable to your image's name.
-  IMAGE_NAME: devcontainer
+  IMAGE_NAME: setting_up_ghost_in_azure_devcontainer
 
 jobs:
   # Run tests.
