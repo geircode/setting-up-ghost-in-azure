@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  ghost_service:
+    image: ghost:latest
+    container_name: ghost_service-1
+    ports: 
+      - 8900:2368
+    networks:
+      - setting_up_ghost_in_azure_network
+networks:
+  setting_up_ghost_in_azure_network:
+    name: setting_up_ghost_in_azure_network
+    external: true    

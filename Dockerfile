@@ -1,6 +1,6 @@
 FROM geircode/setting_up_ghost_in_azure-filecontainer:latest as filecontainer
 
-FROM ghost:latest
+FROM python:3.8-slim-buster
 
 ARG docker_latest_version_file_arg="docker-19.03.5.tgz"
 ENV DOCKER_LATEST_VERSION_FILE=${docker_latest_version_file_arg}
