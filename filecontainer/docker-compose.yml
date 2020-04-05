@@ -2,10 +2,13 @@ version: '3.7'
 
 services:
   setting_up_ghost_in_azure-filecontainer:
-    image: ${DOCKER_REGISTRY}/geircode/setting_up_ghost_in_azure-filecontainer:latest
+    # image: ${DOCKER_REGISTRY:-registry.hub.docker.com}/geircode/setting_up_ghost_in_azure-filecontainer:latest
+    image: geircode/setting_up_ghost_in_azure-filecontainer:latest
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        docker_latest_version_file_arg: ${DOCKER_LATEST_VERSION_FILE}      
     container_name: setting_up_ghost_in_azure-filecontainer-1
     networks:
       - setting_up_ghost_in_azure-filecontainer-network      
