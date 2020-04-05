@@ -1,4 +1,4 @@
-version: '3.5'
+version: '3.7'
 
 services:
   setting_up_ghost_in_azure:
@@ -14,4 +14,3 @@ services:
       - setting_up_ghost_in_azure_network
 networks:
   setting_up_ghost_in_azure_network:
-          docker-compose.yml
