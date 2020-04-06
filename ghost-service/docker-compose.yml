@@ -3,7 +3,10 @@ version: '3.7'
 services:
   ghost_service:
     image: ghost:latest
+    restart: always
     container_name: ghost_service-1
+    environment: 
+      - "url=http://localhost:8900/"
     ports: 
       - 8900:2368
     networks:

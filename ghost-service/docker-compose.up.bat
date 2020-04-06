@@ -1,7 +1,7 @@
 cd %~dp0
 docker rm -f ghost_service-1
 docker-compose -f docker-compose.yml down --remove-orphans
-docker-compose -f docker-compose.yml pull
+REM docker-compose -f docker-compose.yml pull
 
 docker network create -d overlay --attachable setting_up_ghost_in_azure_network
 
