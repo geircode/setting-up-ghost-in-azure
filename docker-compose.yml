@@ -12,7 +12,7 @@ services:
         docker_latest_version_file_arg: ${DOCKER_LATEST_VERSION_FILE} 
     container_name: setting_up_ghost_in_azure-1
     volumes:
-      - ".:/app"       
+      # - ".:/app"       
       - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
       - setting_up_ghost_in_azure_network
