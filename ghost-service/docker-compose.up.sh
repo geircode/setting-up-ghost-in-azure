@@ -13,4 +13,5 @@ docker-compose -f docker-compose.yml up -d --remove-orphans
 sleep 2
 # http://localhost:8900/
 
+echo "Opening a terminal to the Ghost Container..."
 docker exec -it ghost_service-1 /bin/bash
