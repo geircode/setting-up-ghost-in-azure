@@ -1,17 +1,57 @@
 version: '3.7'
 
 services:
-  ghost_service:
-    image: ghost:latest
-    restart: always
-    container_name: ghost_service-1
-    environment: 
-      - "url=http://localhost:8900/"
-    ports: 
-      - 8900:2368
+  ghost:
+    image: 'bitnami/ghost:3'
+    environment:
+      - MARIADB_HOST=mariadb
+      - MARIADB_PORT_NUMBER=3306
+      - MARIADB_ROOT_PASSWORD=""
+      - MARIADB_ROOT_USER="root"
+      - GHOST_DATABASE_USER=bn_ghost
+      - GHOST_DATABASE_NAME=bitnami_ghost
+      - ALLOW_EMPTY_PASSWORD=yes
+      - GHOST_HOST=localhost
+    ports:
+      - '2368:2368'
+    volumes:
+      - 'ghost_data:/bitnami'
+    depends_on:
+      - mariadb
     networks:
-      - setting_up_ghost_in_azure_network
+      - setting_up_ghost_in_azure_network       
+
+  mariadb:
+    image: 'bitnami/mariadb:10.3'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=bn_ghost
+      - MARIADB_DATABASE=bitnami_ghost
+    ports:
+      - '3306:3306'
+    volumes:
+      - 'mariadb_data:/bitnami'
+    networks:
+      - setting_up_ghost_in_azure_network       
+
+  # phpmyadmin:
+  #   image: phpmyadmin/phpmyadmin
+  #   restart: always
+  #   ports:
+  #     - '8950:80'
+  #   environment:
+  #     - PMA_HOST=mariadb      
+  #     - MYSQL_ROOT_PASSWORD=localhost      
+  #   networks:
+  #     - setting_up_ghost_in_azure_network 
+  
+volumes:
+  mariadb_data:
+    driver: local
+  ghost_data:
+    driver: local
+        
 networks:
   setting_up_ghost_in_azure_network:
     name: setting_up_ghost_in_azure_network
-    external: true    
+    external: true        
