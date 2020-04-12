@@ -1,0 +1,42 @@
+version: '3.7'
+
+services:
+  ghost_service:
+    image: ghost:latest
+    restart: always
+    container_name: ghost_service-1
+    environment:
+      url: http://localhost:8900/
+      database__client: mysql
+      database__connection__host: ghost_db
+      database__connection__user: root
+      database__connection__password: ghost_password
+      database__connection__database: ghost      
+    ports: 
+      - 8900:2368
+    networks:
+      - setting_up_ghost_in_azure_network
+  ghost_db:
+    container_name: ghost_db
+    image: mariadb:10.3
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ghost_password
+    ports:
+      - '13339:5432'
+    networks:
+      - setting_up_ghost_in_azure_network 
+
+  mariadb:
+    image: 'bitnami/mariadb:10.3'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=bn_ghost
+      - MARIADB_DATABASE=bitnami_ghost
+    volumes:
+      - 'mariadb_data:/bitnami'
+        
+networks:
+  setting_up_ghost_in_azure_network:
+    name: setting_up_ghost_in_azure_network
+    external: true    

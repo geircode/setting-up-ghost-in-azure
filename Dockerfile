@@ -11,7 +11,7 @@ COPY . /app
 RUN pip install -r requirements.txt 
 
 RUN apt-get update
-RUN apt-get install -y git
+RUN apt-get install -y git dos2unix
 
 WORKDIR /files
 COPY --from=filecontainer /files .
