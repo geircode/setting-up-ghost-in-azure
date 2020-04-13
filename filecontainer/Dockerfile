@@ -10,7 +10,7 @@ ENV DOCKER_LATEST_VERSION_FILE=${docker_latest_version_file_arg}
 
 RUN echo "Download => https://download.docker.com/linux/static/stable/x86_64/${DOCKER_LATEST_VERSION_FILE}"
 
-RUN curl -fLO https://download.docker.com/linux/static/stable/x86_64/${DOCKER_LATEST_VERSION_FILE}
+RUN curl -fL https://download.docker.com/linux/static/stable/x86_64/${DOCKER_LATEST_VERSION_FILE} -o docker.tgz
 
 # Terraform
 ARG TERRAFORM_VERSION=0.12.24
