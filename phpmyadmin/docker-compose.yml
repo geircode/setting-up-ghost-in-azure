@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin-1
+    restart: always
+    ports:
+      - '8950:80'
+    environment:
+      - PMA_HOST=mariadb      
+      - MYSQL_ROOT_PASSWORD=geircode123456789
+    networks:
+      - setting_up_ghost_in_azure_network 
+
+networks:
+  setting_up_ghost_in_azure_network:
+    name: setting_up_ghost_in_azure_network
+    external: true        
