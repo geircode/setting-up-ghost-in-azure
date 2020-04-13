@@ -10,6 +10,16 @@ ENV DOCKER_LATEST_VERSION_FILE=${docker_latest_version_file_arg}
 
 RUN echo "Download => https://download.docker.com/linux/static/stable/x86_64/${DOCKER_LATEST_VERSION_FILE}"
 
-RUN curl -fsSLO https://download.docker.com/linux/static/stable/x86_64/${DOCKER_LATEST_VERSION_FILE}
+RUN curl -fLO https://download.docker.com/linux/static/stable/x86_64/${DOCKER_LATEST_VERSION_FILE}
+
+# Terraform
+ARG TERRAFORM_VERSION=0.12.24
+RUN curl -fL https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip -o terraform_linux_amd64.zip
+
+# tflint
+ARG TFLINT_VERSION=0.15.3
+RUN curl -fL https://github.com/terraform-linters/tflint/releases/download/v${TFLINT_VERSION}/tflint_linux_amd64.zip -o tflint.zip
+
+RUN ls -al
 
 ENTRYPOINT tail -f /dev/null
