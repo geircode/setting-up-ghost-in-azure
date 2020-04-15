@@ -14,10 +14,12 @@ RUN curl -fL https://download.docker.com/linux/static/stable/x86_64/${DOCKER_LAT
 
 # Terraform
 ARG TERRAFORM_VERSION=0.12.24
+RUN echo "Download => https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip"
 RUN curl -fL https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip -o terraform_linux_amd64.zip
 
 # tflint
 ARG TFLINT_VERSION=0.15.3
+RUN echo "Download => https://github.com/terraform-linters/tflint/releases/download/v${TFLINT_VERSION}/tflint_linux_amd64.zip"
 RUN curl -fL https://github.com/terraform-linters/tflint/releases/download/v${TFLINT_VERSION}/tflint_linux_amd64.zip -o tflint.zip
 
 RUN ls -al
