@@ -2,9 +2,6 @@ FROM geircode/setting_up_ghost_in_azure-filecontainer:latest as filecontainer
 
 FROM python:3.8-slim-buster
 
-ARG docker_latest_version_file_arg="docker-19.03.5.tgz"
-ENV DOCKER_LATEST_VERSION_FILE=${docker_latest_version_file_arg}
-
 WORKDIR /app
 COPY . /app
 
@@ -18,7 +15,7 @@ COPY --from=filecontainer /files .
 RUN ls -al
 
 # Docker CLI
-RUN tar --strip-components=1 -xvzf ${DOCKER_LATEST_VERSION_FILE} -C /usr/local/bin
+RUN tar --strip-components=1 -xvzf docker.tgz -C /usr/local/bin
 
 # Get the Terraform files. Get newer version from: https://www.terraform.io/downloads.html
 RUN unzip -q terraform_linux_amd64.zip -d /usr/bin && \
